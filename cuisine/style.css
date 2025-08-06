@@ -7,10 +7,12 @@ body {
 }
 
 header {
+  display: flex;
   background-color: #e63946;
+  justify-content: space-between;
+  align-items: center;
   color: white;
-  padding: 20px 0;
-  text-align: center;
+  padding: 5px;
 }
 
 nav ul {
@@ -30,8 +32,8 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-  text-decoration: underline;
-  color: #ffd6d6;
+  background-color: transparent;
+  border: 3px solid #f5f5f5;
 }
 
 /* ====== BIENVENUE ====== */
@@ -119,8 +121,8 @@ footer {
 
   nav ul {
     flex-direction: column;
-    gap: 10px;
-  }
+    gap: 10px; /* Fixed: replaced non-breaking space with regular space */
+  }
 }
 /* ====== PAGE RECETTES ====== */
 .liste-recettes {
@@ -201,6 +203,19 @@ footer {
   margin-bottom: 10px;
   line-height: 1.5;
 }
+
+/* Ajoute ou modifie cette règle pour réduire la taille de l'image dans la fiche recette */
+
+.detail-recette .contenu-recette img {
+  display: block;
+  max-width: 260px;
+  width: 90%;
+  height: auto;
+  margin: 0 auto 18px auto;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
 /* ====== FORMULAIRE DE CONTACT ====== */
 .contact-section {
   max-width: 600px;
@@ -311,4 +326,88 @@ footer {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+}
+
+/* Ajoute ce code à la fin de style.css pour styliser et rendre le formulaire responsive */
+
+.contact-section {
+  max-width: 400px;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  padding: 32px 24px;
+}
+
+.contact-section h2 {
+  text-align: center;
+  margin-bottom: 12px;
+  color: #d35400;
+  font-size: 2rem;
+}
+
+.contact-section p {
+  text-align: center;
+  margin-bottom: 24px;
+  color: #555;
+}
+
+#contactForm {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+#contactForm input,
+#contactForm textarea {
+  padding: 12px;
+  border: 1px solid #e1e1e1;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+  background: #fafafa;
+}
+
+#contactForm input:focus,
+#contactForm textarea:focus {
+  border-color: #d35400;
+  outline: none;
+}
+
+#contactForm textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+#contactForm button {
+  background: linear-gradient(90deg, #d35400 60%, #f39c12 100%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 14px 0;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+  box-shadow: 0 2px 8px rgba(211,84,0,0.08);
+}
+
+#contactForm button:hover {
+  background: linear-gradient(90deg, #f39c12 60%, #d35400 100%);
+}
+
+@media (max-width: 600px) {
+  .contact-section {
+    padding: 18px 8px;
+    max-width: 98vw;
+  }
+  #contactForm input,
+  #contactForm textarea {
+    font-size: 0.95rem;
+    padding: 10px;
+  }
+  #contactForm button {
+    font-size: 1rem;
+    padding: 12px 0;
+  }
 }

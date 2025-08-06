@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact - Tressy Cuisine</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>Tressy Cuisine</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="recettes.html">Recettes</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="contact-section">
+    <h2>Contactez-nous</h2>
+    <p>Vous avez une question ou une suggestion ? Envoyez-nous un message !</p>
+
+    <form id="contactForm" onsubmit="sendWhatsApp(event)">
+      <input type="text" id="nom" name="nom" placeholder="Votre nom" required>
+      <input type="email" id="email" name="email" placeholder="Votre email" required>
+      <textarea id="message" name="message" placeholder="Votre message" required></textarea>
+      <button type="submit">Envoyer sur WhatsApp</button>
+    </form>
+
+    <script>
+      function sendWhatsApp(e) {
+        e.preventDefault();
+        const nom = document.getElementById('nom').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+        const numero = '993905103';
+        const texte = encodeURIComponent(`Nom: ${nom}\nEmail: ${email}\nMessage: ${message}`);
+        window.open(`https://wa.me/${numero}?text=${texte}`, '_blank');
+      }
+    </script>
+  </section>
+
+  <footer>
+    <p>© 2025 Tressy Cuisine</p>
+  </footer>
+
+</body>
+</html>
